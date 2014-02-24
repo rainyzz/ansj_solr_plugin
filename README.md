@@ -9,7 +9,7 @@
 ##Solr中的配置
 
 在schema.xml加入如下配置：
-
+```
 	<fieldType name="text_ch" class="solr.TextField" positionIncrementGap="100">
  		<analyzer type="index">
   		 	<tokenizer class="org.ansj.solr.AnsjTokenizerFactory"  isQuery="false"/>
@@ -18,20 +18,23 @@
    			<tokenizer class="org.ansj.solr.AnsjTokenizerFactory"/>
  		</analyzer>
    	</fieldType>
+```
 
-```isQuery```代表使用的是检索时需要的比较精确的分词方式还是建立索引时所需要的比较不精确但是产生词语较多的分词方式。
+
+isQuery代表使用的是检索时需要的比较精确的分词方式还是建立索引时所需要的比较不精确但是产生词语较多的分词方式。
 
 ##自定义词库
 
 在Solr的Web文件夹与lib文件夹一起的classes文件夹中新建library.properties文件，写入如下内容，具体目录可以根据自己的需要修改，需要注意的是在Solr中分词的默认的当前路径是Solr的目录，即下面的```D:/work_solr/example/```,如需使用相对路径请做对应的修改，自定义词库的格式请查看[作者主页](https://github.com/ansjsun/ansj_seg)。
 
+```
   	#redress dic file path
   	ambiguityLibrary=library/ambiguity.dic
   	#path of userLibrary this is default library
 	userLibrary=D:/work_solr/example/solr-webapp/webapp/WEB-INF/classes/library/default.dic
 	#set real name
 	isRealName=true
-	
+```	
 ##本项目jar包下载地址
 
 [点击下载](https://www.dropbox.com/s/xidi7m2u3ggsu8p/ansjsolr.jar)
