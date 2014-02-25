@@ -19,9 +19,18 @@
  		</analyzer>
    	</fieldType>
 ```
+插件一共支持isQuery，pstemming和words三个参数。
 
+其中的isQuery为true代表使用分词的策略是检索时需要的比较精确的分词方式，false时是建立索引时所需要的比较不精确但是产生词语较多的分词方式。
 
-isQuery代表使用的是检索时需要的比较精确的分词方式还是建立索引时所需要的比较不精确但是产生词语较多的分词方式。
+其中的pstemming是原作者提供的参数，用来判断是否需要处理英文名词的单复数，第三人称等。
+
+其中的words是停止词的路径，在我的使用中Solr服务器所在的目录为```D:\work_solr\example\```,如果把停止词放置在```D:\work_solr\example\solr\collection1\conf```文件夹下，就应该添加参数如下：
+
+```
+<tokenizer class="me.rainystars.ansj.solr.plugin.AnsjTokenizerFactory"  isQuery="false" words="solr/collection1/conf/stopwords_ch.txt"/>
+```
+然后就可以读取文件中的停止词列表，进行停止词过滤，文件请使用utf-8格式。
 
 ##自定义词库
 
@@ -37,4 +46,4 @@ isQuery代表使用的是检索时需要的比较精确的分词方式还是建�
 ```	
 ##本项目jar包下载地址
 
-[点击下载](https://www.dropbox.com/s/xidi7m2u3ggsu8p/ansjsolr.jar)
+[点击下载](https://www.dropbox.com/s/xsoc4dgg73uept2/ansj_solr_plug-1.0.0.jar)
