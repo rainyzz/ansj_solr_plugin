@@ -12,10 +12,10 @@
 ```
 	<fieldType name="text_ch" class="solr.TextField" positionIncrementGap="100">
  		<analyzer type="index">
-  		 	<tokenizer class="org.ansj.solr.AnsjTokenizerFactory"  isQuery="false"/>
+  		 	<tokenizer class="me.rainystars.ansj.solr.plugin.AnsjTokenizerFactory"  isQuery="false"/>
  		</analyzer>
      	<analyzer type="query">
-   			<tokenizer class="org.ansj.solr.AnsjTokenizerFactory"/>
+   			<tokenizer class="me.rainystars.ansj.solr.plugin.AnsjTokenizerFactory"/>
  		</analyzer>
    	</fieldType>
 ```
